@@ -3,6 +3,7 @@ version: "3"
 services:
   db:
     image: mariadb:10.5
+    container_name: linkace-app-db
     restart: unless-stopped
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
     environment:
@@ -15,6 +16,7 @@ services:
       
   app:
     image: linkace/linkace:simple
+    container_name: linkace-app-1
     restart: unless-stopped
     depends_on:
       - db
