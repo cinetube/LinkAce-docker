@@ -23,3 +23,7 @@ After you started the Docker containers, you are almost ready to run the setup. 
 ```
 docker exec linkace-app-1 php artisan key:generate
 ```
+
+```
+chmod 666 linkace_logs/
+```
