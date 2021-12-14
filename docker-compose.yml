@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  db:
+    image: mariadb:10.5
+    restart: unless-stopped
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_DATABASE}
+    volumes:
+      - db:/var/lib/mysql
+      
+  app:
+    image: linkace/linkace:simple
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "8989:80"
+    volumes:
+      - ./.env:/app/.env
+      - ./linkace_logs:/app/storage/logs
+      
+volumes:
+  linkace_logs:
+  db:
+    driver: local
