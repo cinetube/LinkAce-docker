@@ -1,5 +1,17 @@
 # LinkAce-docker
 
+```
+git clone https://github.com/cinetube/LinkAce-docker/
+```
+
+```
+cd LinkAce-docker
+```
+
+```
+chomd 666 .env
+```
+
 If you are unsure if the .env file is writable inside Docker, please make it writable for anybody (-rw-rw-rw- or 666). You can switch back to make it read only after the setup.
 
 ```
