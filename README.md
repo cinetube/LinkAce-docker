@@ -26,5 +26,5 @@ chmod 666 .env
 ```
 
 ```
-chmod 777 linkace_logs/
+chmod 755 linkace_logs/
 ```
