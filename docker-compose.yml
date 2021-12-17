@@ -4,7 +4,7 @@ services:
   db:
     image: mariadb:10.5
     container_name: linkace-app-db
-    restart: unless-stopped
+    restart: always
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
@@ -17,7 +17,7 @@ services:
   app:
     image: linkace/linkace:simple
     container_name: linkace-app-1
-    restart: unless-stopped
+    restart: always
     depends_on:
       - db
     ports:
